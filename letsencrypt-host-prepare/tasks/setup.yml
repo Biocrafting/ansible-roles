@@ -1,0 +1,15 @@
+---
+- name: install sudo
+  package: name=sudo state=present
+
+- name: Add {{ le.user }} user
+  user: name={{ le.user }} createhome=yes comment="ssl cert user" home=/etc/ssl/{{ le.user }}/
+  register: useradded
+
+- name: Set up authorized_keys for {{ le.user }}
+  authorized_key: user={{ le.user }} key="{{ item }}" key_options='from="{{ le.host }}/128",no-agent-forwarding,no-port-forwarding,no-X11-forwarding'
+  with_file:
+    - public_key
+
+- name: configure sudoers
+  lineinfile: "dest=/etc/sudoers.d/ansible line='{{ le.user }} ALL=NOPASSWD: /bin/systemctl reload nginx.service' state=present create=yes validate='visudo -cf %s'"
