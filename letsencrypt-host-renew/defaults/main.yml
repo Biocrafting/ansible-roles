@@ -1,0 +1,5 @@
+---
+le:
+  user: bcssl
+  cert: /home/acme/.acme.sh/account.biocrafting.net/fullchain.cer
+  key: /home/acme/.acme.sh/account.biocrafting.net/account.biocrafting.net.key
