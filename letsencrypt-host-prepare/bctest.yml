@@ -1,5 +1,0 @@
----
-- hosts: bctest
-  roles:
-    - bc-letsencrypt
-
