@@ -1,6 +1,3 @@
 ---
 - name: reload nginx
   shell: sh -c "sudo systemctl reload nginx.service"
-  become: yes
-  become_user: "{{ le.user }}"
-  become_method: sudo
