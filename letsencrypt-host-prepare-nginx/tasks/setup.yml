@@ -7,7 +7,7 @@
   register: useradded
 
 - name: Set up authorized_keys for {{ le.user }}
-  authorized_key: user={{ le.user }} key="{{ item }}" key_options='from="{{ le.host }}/128",no-agent-forwarding,no-port-forwarding,no-X11-forwarding'
+  authorized_key: user={{ le.user }} key="{{ item }}" key_options='from="{{ le.host }}",no-agent-forwarding,no-port-forwarding,no-X11-forwarding'
   with_file:
     - public_key
 
