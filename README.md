@@ -1,12 +1,16 @@
 # ansible-roles
-Some ansible roles to manage our server/services
+Some ansible roles to manage our server/services.
+
+Feel free to use/modify this roles for your needs.
+Please bear this roles are intended for use with our environment. They are not generalized in any way.
+
 
 ## letsencrypt-host-prepare-nginx
 This role prepares a server with nginx for our Let's Encrypt renewal strategy.
 
 It is  tested on Debian Jessie/ CentOS 7 hosts, but should also work on other distros aslong they provide the package "sudo" and uses systemd for service management.
 
-The role installs sudo, creates a user with the homedirectory in /etc/ssl, adds the public key found in `files/public_key` to the authorized_keys (with some limitations, like only allowed from the address defined in `{{ le.host }}`) and configures sudo, so the user can reload the nginx.service.
+The role installs sudo, creates a user with the homedirectory in /etc/ssl, adds the public key found in `files/public_key` to the authorized_keys (with some limitations, like only allowed from the address defined in `{{ le.host }}`) and configures sudo, so the user can reload the `nginx.service`.
 
 You can set two variables:
 
