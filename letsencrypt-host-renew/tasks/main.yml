@@ -14,3 +14,10 @@
 - name: generate nginx config
   template: src=nginx-ssl-le.j2 dest=/etc/ssl/{{ le.user }}/letsencrypt/nginx-ssl.conf owner={{ le.user }} group={{ le.user }}
   notify: reload nginx
+  register: nginx_config
+  
+- local_action: mail
+                to="{{ le.mail_recipient }}"
+                subject='Ansible-report: nginx-ssl configuration ({{ ansible_date_time.year }}-{{ ansible_date_time.month }})'
+                body='The nginx-ssl configuration on {{ ansible_hostname }} has been successfully renewed.'
+  when: nginx_config

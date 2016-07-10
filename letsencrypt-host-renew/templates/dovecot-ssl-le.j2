@@ -1,0 +1,3 @@
+# {{ ansible_managed }}
+ssl_cert = </etc/ssl/{{ le.user }}/letsencrypt/{{ ansible_date_time.year }}-{{ ansible_date_time.month }}/cert.pem;
+ssl_key = </etc/ssl/{{ le.user }}/letsencrypt/{{ ansible_date_time.year }}-{{ ansible_date_time.month }}/key.pem;
