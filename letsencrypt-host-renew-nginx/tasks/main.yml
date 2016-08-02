@@ -19,7 +19,7 @@
 - name: validate nginx conf
   command: nginx -t
   become: true
-  become_user: apache
+  become_user: root
   become_method: sudo
   changed_when: false
   
