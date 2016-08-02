@@ -17,7 +17,10 @@
   register: nginx_config
 
 - name: validate nginx conf
-  command: sudo nginx -t
+  command: nginx -t
+  become: true
+  become_user: apache
+  become_method: sudo
   changed_when: false
   
 - local_action: mail
