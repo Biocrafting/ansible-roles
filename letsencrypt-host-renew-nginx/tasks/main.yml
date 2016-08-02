@@ -18,6 +18,6 @@
   
 - local_action: mail
                 to="{{ le.mail_recipient }}"
-                subject='Ansible-report: nginx-ssl configuration ({{ ansible_date_time.year }}-{{ ansible_date_time.month }})'
+                subject='Ansible-report nginx-ssl configuration ({{ ansible_date_time.year }}-{{ ansible_date_time.month }})'
                 body='The nginx-ssl configuration on {{ ansible_hostname }} has been successfully renewed.'
   when: nginx_config
