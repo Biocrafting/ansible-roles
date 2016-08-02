@@ -11,5 +11,8 @@
   with_file:
     - public_key
 
-- name: configure sudoers
+- name: configure sudoers for service managed
   lineinfile: "dest=/etc/sudoers.d/ansible line='{{ le.user }} ALL=NOPASSWD: /bin/systemctl reload nginx.service' state=present create=yes validate='visudo -cf %s'"
+
+- name: configure sudoers for nginx config validation
+  lineinfile: "dest=/etc/sudoers.d/ansible line='{{ le.user }} ALL=NOPASSWD: /usr/sbin/nginx -t' state=present create=yes validate='visudo -cf %s'"
