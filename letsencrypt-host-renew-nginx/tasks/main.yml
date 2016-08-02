@@ -15,6 +15,10 @@
   template: src=nginx-ssl-le.j2 dest=/etc/ssl/{{ le.user }}/letsencrypt/nginx-ssl.conf owner={{ le.user }} group={{ le.user }}
   notify: reload nginx
   register: nginx_config
+
+- name: validate nginx conf
+  command: nginx -t
+  changed_when: false
   
 - local_action: mail
                 to="{{ le.mail_recipient }}"
