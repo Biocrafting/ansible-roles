@@ -3,4 +3,4 @@ le:
   user: bcssl
   mail_recipient: postbote@biocrafting.net
   cert: /home/acme/.acme.sh/biocrafting.net/fullchain.cer
-  key: /home/acme/.acme.sh/biocrafting.net/account.biocrafting.net.key
+  key: /home/acme/.acme.sh/biocrafting.net/biocrafting.net.key
