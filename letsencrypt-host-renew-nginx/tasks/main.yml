@@ -17,10 +17,7 @@
   register: nginx_config
 
 - name: validate nginx conf
-  command: nginx -t
-  become: true
-  become_user: root
-  become_method: sudo
+  shell: sh -c "sudo nginx -t"
   changed_when: false
   
 - local_action: mail
