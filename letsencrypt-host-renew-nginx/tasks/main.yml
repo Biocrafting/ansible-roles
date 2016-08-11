@@ -14,8 +14,8 @@
 - name: generate nginx config
   template: src=nginx-ssl-le.j2 dest=/etc/ssl/{{ le.user }}/letsencrypt/nginx-ssl.conf owner={{ le.user }} group={{ le.user }}
   register: nginx_config
+  notify: reload nginx
 
 - name: validate nginx conf
   shell: sh -c "sudo nginx -t"
   changed_when: false
-  notify: reload nginx
