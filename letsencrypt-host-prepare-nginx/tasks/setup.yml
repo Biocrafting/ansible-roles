@@ -7,9 +7,7 @@
   register: useradded
 
 - name: Set up authorized_keys for {{ le.user }}
-  authorized_key: user={{ le.user }} key="{{ item }}" key_options='from="{{ le.host }}",no-agent-forwarding,no-port-forwarding,no-X11-forwarding'
-  with_file:
-    - public_key
+  authorized_key: user={{ le.user }} key="{{ le.key }}" key_options='from="{{ le.host }}",no-agent-forwarding,no-port-forwarding,no-X11-forwarding'
 
 - name: configure sudoers for service managed
   lineinfile: "dest=/etc/sudoers.d/ansible line='{{ le.user }} ALL=NOPASSWD: /bin/systemctl reload nginx.service' state=present create=yes validate='visudo -cf %s'"
