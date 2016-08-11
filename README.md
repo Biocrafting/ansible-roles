@@ -6,7 +6,7 @@ Please bear this roles are intended for use with our environment. They are not g
 
 
 ## letsencrypt-host-prepare-nginx
-This role prepares a server with nginx for our Let's Encrypt renewal strategy.
+This role prepares a server with nginx for our [Let's Encrypt renewal strategy}(https://4g.noobadmin.de/blog/2016/08/11/letsencrypt-catchall-acme-response/).
 
 It is  tested on Debian Jessie/ CentOS 7 hosts, but should also work on other distros aslong they provide the package "sudo" and uses systemd for service management.
 
