@@ -19,3 +19,6 @@
 - name: validate nginx conf
   shell: sh -c "sudo nginx -t"
   changed_when: false
+
+- name: reload nginx
+  shell: sh -c "sudo systemctl reload nginx.service"
