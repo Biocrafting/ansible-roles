@@ -1,0 +1,7 @@
+.########...######.
+.##.....##.##....##
+.##.....##.##......
+.########..##......   Distro:  {{ ansible_distribution }} - {{ ansible_kernel }}
+.##.....##.##......   Host:    {{ ansible_fqdn}} ({{ ansible_default_ipv4.address | default('<unassigned>')}})
+.##.....##.##....##   Gateway: {{ ansible_default_ipv4.gateway | default('<unassigned>') }} ({{ ansible_default_ipv4.interface }})
+.########...######.   Type:   {% if ansible_virtualization_type == 'lxc' %}LXC Container{% elif ansible_virtualization_type == 'VMware' %}{{ ansible_product_name }}{% elif ansible_virtualization_type == 'kvm' %}{{ ansible_product_name }}{% else %}Baremetal{% endif %}
