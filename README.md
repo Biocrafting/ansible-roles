@@ -25,7 +25,5 @@ Your vhosts have to include `/etc/ssl/{{ le.user }}/letsencrypt/nginx-ssl.conf`.
 
 | Variable   | Use   | 
 |------|---|
-| le.user | The user which was defined and created in letsencrypt-host-prepare-nginx |
-| le.mail_recipient   | E-Mail address for the (simple) status report   |
 | le.cert   | location of the certificate file which should be deployed on the host  |
 | le.key   | location of the key file which should be deployed on the host  |
